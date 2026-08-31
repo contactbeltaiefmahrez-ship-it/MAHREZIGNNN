@@ -1,0 +1,1 @@
+{"name": "business", "dependsOn": ["taxonomy", "media", "search"], "ownsTables": ["business", "business_photo_ref", "business_service"]}

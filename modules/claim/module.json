@@ -1,0 +1,1 @@
+{"name": "claim", "dependsOn": ["identity", "business", "audit", "notification", "analytics"], "ownsTables": ["claim", "claim_evidence"]}

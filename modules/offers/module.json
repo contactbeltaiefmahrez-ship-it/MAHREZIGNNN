@@ -1,0 +1,1 @@
+{"name":"offers","dependsOn":["business"],"ownsTables":["offer"]}

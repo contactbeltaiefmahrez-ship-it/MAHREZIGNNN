@@ -1,0 +1,1 @@
+{"name":"receipt","dependsOn":["business","market"],"ownsTables":["attention_receipt","receipt_line"]}

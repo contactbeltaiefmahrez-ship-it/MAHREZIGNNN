@@ -1,0 +1,1 @@
+{"name":"verification","dependsOn":["business","media","audit"],"ownsTables":["verification","verification_document"]}

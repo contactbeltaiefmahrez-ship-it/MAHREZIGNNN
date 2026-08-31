@@ -1,0 +1,46 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: markyra_core
+        options: >-
+          --health-cmd pg_isready --health-interval 10s
+          --health-timeout 5s --health-retries 5
+        ports: ['5432:5432']
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/markyra_core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci
+      - name: extensions
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -d markyra_core \
+            -c "create extension postgis; create extension pg_trgm;
+                create extension btree_gist; create extension pgcrypto;"
+      - run: npm run db:migrate
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run web:build
+      # Destructive migrations require a named approver (Architecture 30.1)
+      - name: destructive migration guard
+        run: |
+          if grep -rniE "drop (column|table)|alter .* type " db/migrations/ \
+             | grep -v "destructive: approved-by"; then
+            echo "::error::destructive migration without an approver marker"; exit 1
+          fi
+      # Fixtures must never reach a non-development environment
+      - name: fixture guard
+        run: |
+          if grep -rn "FIXTURE" --include="*.ts" apps/ modules/ | grep -v "seed-dev\|test\|spec"; then
+            echo "::error::fixture reference outside seed/test code"; exit 1
+          fi

@@ -1,0 +1,1 @@
+{"name": "ops", "dependsOn": ["audit", "business", "claim", "market", "payment", "search", "taxonomy", "verification"], "ownsTables": ["data_source", "duplicate_review", "geo_lineage", "import_batch", "moderation_action", "pilot_dataset_member", "pilot_dataset_version", "platform_config", "report", "schema_migration", "staging_business"]}
