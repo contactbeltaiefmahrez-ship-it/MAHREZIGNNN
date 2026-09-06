@@ -1,1 +1,0 @@
-{"name": "notification", "dependsOn": [], "ownsTables": ["notification", "notification_subscription", "sms_outbox"]}

@@ -1,1 +1,0 @@
-{"name":"market","dependsOn":["business","payment","attention","audit"],"ownsTables":["market_cycle","market_seat","cycle_transition","cycle_open_snapshot","seat_application"]}

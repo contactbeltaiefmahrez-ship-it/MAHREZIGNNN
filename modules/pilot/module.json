@@ -1,1 +1,0 @@
-{"name": "pilot", "dependsOn": ["analytics", "business", "ops", "audit"], "ownsTables": ["pilot_window", "pilot_corridor", "traffic_exclusion", "support_ticket", "pilot_incident", "pilot_decision_log"]}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAHREZIGN — Mahrez Beltaief / Visual Design Lab</title>
+<meta name="description" content="MAHREZIGN is the visual design lab of Mahrez Beltaief. Three acts: the author, the work, the connection. Thirty-eight projects, two hundred and sixty images.">
+<meta name="theme-color" content="#F5F1EA">
+<meta property="og:title" content="MAHREZIGN — Visual Design Lab">
+<meta property="og:description" content="Mahrez Beltaief. Nine years of visual practice. 38 projects, 260 images.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/M.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/M.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/mahrezign.css">
+</head>
+<body data-act="i">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="overture" id="overture" aria-hidden="true">
+  <div class="overture__marks"><span class="ov-line ov-line--h"></span><span class="ov-line ov-line--v"></span></div>
+  <p class="ov-micro ov-micro--tl">36°48′N / 10°10′E</p>
+  <p class="ov-micro ov-micro--tr">VISUAL DESIGN LAB</p>
+  <p class="ov-micro ov-micro--bl">09 YEARS OF PRACTICE</p>
+  <p class="ov-micro ov-micro--br">TUNISIA ↔ INTERNATIONAL</p>
+  <span class="ov-m" id="ovM"></span>
+  <p class="ov-word">MAHREZIGN</p>
+</div>
+
+<header class="chrome" id="chrome">
+  <button class="m-trigger" id="mTrigger" aria-expanded="false" aria-controls="mPanel" aria-label="Open index">
+    <span class="m-mark" aria-hidden="true"></span>
+  </button>
+  <nav class="acts" aria-label="Acts">
+    <a href="#/" data-act-link="i"><i>I</i><span>The Author</span></a>
+    <a href="#/work" data-act-link="ii"><i>II</i><span>The Work</span></a>
+    <a href="#/connect" data-act-link="iii"><i>III</i><span>The Connection</span></a>
+  </nav>
+  <p class="locator num" id="locator"></p>
+</header>
+
+<div class="m-panel" id="mPanel" hidden>
+  <div class="m-panel__inner">
+    <div>
+      <p class="micro">The Atlas — twelve fields of practice</p>
+      <ul class="field-list" id="fieldList"></ul>
+    </div>
+    <div class="m-panel__aside">
+      <div class="m-panel__preview" id="mPreview" aria-hidden="true"></div>
+      <ul class="m-panel__links">
+        <li><a href="#/">I — The Author</a></li>
+        <li><a href="#/work">II — The Work / The Atlas</a></li>
+        <li><a href="#/project/0">Project 00 — Academia</a></li>
+        <li><a href="#/archive">The Archive — 260 images</a></li>
+        <li><a href="#/connect">III — The Connection</a></li>
+      </ul>
+      <p class="micro m-panel__sig">MAHREZIGN — VISUAL DESIGN LAB</p>
+    </div>
+  </div>
+</div>
+
+<main id="main" tabindex="-1"></main>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="viewer__close" id="viewerClose" aria-label="Close viewer">CLOSE</button>
+  <button class="viewer__nav viewer__nav--prev" id="viewerPrev" aria-label="Previous image"></button>
+  <button class="viewer__nav viewer__nav--next" id="viewerNext" aria-label="Next image"></button>
+  <figure class="viewer__stage" id="viewerStage"></figure>
+  <figcaption class="viewer__meta" id="viewerMeta"></figcaption>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
